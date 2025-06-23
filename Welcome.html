@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #000000 0%, #2c2c2c 50%, #000000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: slideInLeft 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+            animation: slideInRight 1s ease-out 0.6s both;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ffffff, #f0f0f0);
+            color: #000000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 10px 30px rgba(255,255,255,0.2); }
+            50% { box-shadow: 0 15px 40px rgba(255,255,255,0.4); }
+            100% { box-shadow: 0 10px 30px rgba(255,255,255,0.2); }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,255,255,0.4);
+            background: linear-gradient(45deg, #f0f0f0, #ffffff);
+        }
+
+        /* Geometric shapes for visual interest */
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+        }
+
+        .shape-2 {
+            top: 20%;
+            right: 15%;
+            width: 80px;
+            height: 80px;
+            border: 2px solid #cccccc;
+            transform: rotate(45deg);
+        }
+
+        .shape-3 {
+            bottom: 15%;
+            left: 20%;
+            width: 60px;
+            height: 60px;
+            border: 2px solid #888888;
+            border-radius: 50%;
+            animation: rotate 15s linear infinite reverse;
+        }
+
+        /* Cover Section */
+        .cover {
+            min-height: 100vh;
+            background: linear-gradient(45deg, #f8f8f8 0%, #e0e0e0 50%, #f8f8f8 100%);
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0,0,0,0.02) 2px,
+                    rgba(0,0,0,0.02) 4px
+                );
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cover-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .cover-text h2 {
+            font-size: 3rem;
+            color: #000000;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            position: relative;
+        }
+
+        .cover-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #000000, #666666);
+        }
+
+        .cover-text p {
+            font-size: 1.2rem;
+            color: #555555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cover-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .visual-box {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #000000, #333333, #666666);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, rgba(255,255,255,0.1), transparent);
+            animation: rotate 8s linear infinite;
+        }
+
+        .visual-icon {
+            font-size: 4rem;
+            color: #ffffff;
+            z-index: 2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cover-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+
+            .cover-text h2 {
+                font-size: 2.2rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .visual-box {
+                width: 250px;
+                height: 250px;
+            }
+
+            .shape {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cover-text h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .visual-box {
+                width: 200px;
+                height: 200px;
+            }
+
+            .visual-icon {
+                font-size: 3rem;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        
+        <div class="hero-content">
+            <h1>Selamat Datang di Website Berita UNJ</h1>
+  <p>Media Informasi yang Kredibel dan Terkini</p>
+
+  <a href="https://yanzee969.github.io/Website-Berita-UNJ/Index.html" target="_blank" class="cta-button">
+    Kunjungi Website
+  </a>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div style="font-size: 1.5rem;">↓</div>
+        </div>
+    </section>
+
+    <!-- Cover Section --><section class="cover" id="cover">
+    <div class="container">
+      <div class="cover-content">
+        <div class="cover-text">
+          <h2>Selamat Datang di Website Berita UNJ</h2>
+          <p>Website ini merupakan portal resmi berita Nasional Internasional yang menyajikan informasi terpercaya, edukatif, dan aktual bagi civitas akademika dan masyarakat luas.</p>
+          <p>Dengan semangat jurnalistik, kami menghadirkan berita, opini, serta agenda, dalam satu platform digital yang modern dan mudah diakses.</p>
+
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-number">1000+</div>
+              <div class="stat-label">Berita Dipublikasikan</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">20+</div>
+              <div class="stat-label">Kontributor Aktif</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Tahun Eksistensi</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cover-visual">
+          <div class="visual-box">
+            <div class="visual-icon">📰</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
